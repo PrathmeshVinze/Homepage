@@ -71,20 +71,16 @@
       <ul>
         <li>Self-organisation of phoretic suspensions under external forcings (2021–Present)</li>
         <figure> 
-        <video id="myvideo" width="560" controls>
-    <source src="videos/2D_unsteady_Fi.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-          <script>
-  // Set default playback speed to 1.5x when the page loads
-  document.getElementById('myvideo').playbackRate = 2;
-</script>
-        <figcaption>The 2D periodic state of the suspension.</figcaption>
-</figure>
+          <video id="myvideo" width="560" controls>
+            <source src="videos/2D_unsteady_Fi.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <figcaption>The 2D periodic state of the suspension.</figcaption>
+        </figure>
         <p>In this work, we numerically analyse using a continuum kinetic model the dynamics and response to shear of dilute and confined suspensions of chemotactic phoretic particles that reorient and drift toward the chemical solutes released by their neighbours. We show that a 1D transient steady distribution driven by the effect of confinement is a common feature for the confinement and shear rate intensities considered. Depending on the strength of confinement and background shear, the system relaxes into three distinct regimes. In a second step, the feedback effect of the active stresses in explored where we study the rheological behaviour of the suspension. We show that the rheological behavior strongly depends on the self-organization regime which can be controlled using shear and confinement strength. 
         Building on the insights of suspension dynamics in the presence of shear and confinement, we move our focus on controlling collective dynamics through external solute fields, demonstrating how chemically active patches at walls can influence suspension behavior. This study is currently being prepared for journal submission. Here we have identified key mechanisms governing self-organization in confined shear flows and demonstrated how external solute fields can be used to actively control collective dynamics, thereby advancing our understanding of phoretic swimmer behavior.
-</p>
-       <li>Effect of solute advection on the swimming velocity of a Janus particle (2021)</li>
+        </p>
+        <li>Effect of solute advection on the swimming velocity of a Janus particle (2021)</li>
           <p>In this work, we develop a theoretical framework to capture weak advective effects on the swimming velocity of an active particle under the influence of an external concentration gradient. Using Péclet number as a perturbation parameter, we employ a singular perturbation technique along with the method of matched assymptotic expansions to evaluate the concentration field up to 𝑂⁡(Pe). Consequently, exploiting the Lorentz reciprocal theorem, an analytical expression for the translational velocity valid up to 𝑂⁡(Pe) is obtained.</p>
         
         <li>Dynamics of an artificial swimmer in external concentration gradient (2020–2021)</li>
@@ -167,6 +163,21 @@
       }
       document.getElementById(tabId).classList.add("active");
       evt.currentTarget.classList.add("active");
+
+      // Video autoplay and speed control when switching to Research tab
+      var video = document.getElementById('myvideo');
+      if (video) {
+        if (tabId === 'research') {
+          video.playbackRate = 2; // Set desired speed
+          video.currentTime = 0;  // Start from beginning
+          // Try to play (autoplay may require muted for some browsers)
+          video.play().catch(function(e){
+            // If autoplay fails (e.g., user gesture required), do nothing
+          });
+        } else {
+          video.pause();
+        }
+      }
     }
   </script>
 </body>
